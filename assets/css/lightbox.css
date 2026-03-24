@@ -1,0 +1,62 @@
+body.leimglocal-lightbox-open {
+  overflow: hidden;
+}
+
+.leimglocal-lightbox-overlay {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: zoom-out;
+}
+
+.leimglocal-lightbox-image {
+  max-width: min(1200px, 95vw);
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+}
+
+.leimglocal-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.leimglocal-lightbox-icon-wrap,
+.leimglocal-lightbox-icon-host {
+  position: relative;
+  display: inline-block;
+}
+
+.leimglocal-lightbox-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}

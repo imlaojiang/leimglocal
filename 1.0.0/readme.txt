@@ -3,9 +3,9 @@
 Contributors: laojiang
 Tags: images, localize, paste, screenshot, gutenberg, classic editor
 Requires at least: 5.0
-Tested up to: 6.9.4
+Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,9 +18,6 @@ Leimg Local 是一款用于 WordPress 的图片本地化插件，适合内容采
 * 一键将编辑器内容中的外链图片下载到媒体库，并替换为本地 URL。
 * 同时支持传统编辑器（TinyMCE）与古登堡块编辑器（Gutenberg）。
 * 支持截图/剪贴板图片粘贴后自动上传并插入内容（可在设置中关闭）。
-* 支持前台图片灯箱（Lightbox）效果，可自定义最小像素阈值，达到尺寸才可点击放大。
-* 支持“只对文章内容生效”选项，避免侧栏等区域图片触发灯箱。
-* 支持可选放大镜角标提示，仅对达到最小尺寸的图片显示。
 * 支持基础开关配置，便于按站点需求启用或关闭功能。
 * 符合 WordPress 开发规范，兼容 PHP 7.4+。
 
@@ -59,18 +56,9 @@ Leimg Local 是一款用于 WordPress 的图片本地化插件，适合内容采
 
 == Changelog ==
 
-= 1.1.0 =
-* 新增前台图片灯箱（Lightbox）功能开关。
-* 新增灯箱最小尺寸（像素）设置，达到阈值才可点击放大。
-* 新增“只对文章内容生效”选项，可限制灯箱只作用于正文图片。
-* 新增“放大镜角标提示”选项，仅对可放大的图片显示右上角提示图标。
-* 优化灯箱交互：支持点击遮罩与 ESC 关闭。
-* 完善设置项默认值与卸载清理逻辑。
-
 = 1.0.0 =
 * 首次发布。
 * 支持一键本地化外链图片到媒体库。
 * 支持传统编辑器与古登堡。
 * 支持粘贴截图自动上传。
-* 支持前台图片灯箱（Lightbox）与最小尺寸阈值设置。
 * 提供后台设置页。

@@ -3,7 +3,7 @@
  * Plugin Name:       Leimg Local
  * Plugin URI:        https://www.itbulu.com/leimglocal.html
  * Description:       将编辑器中的外部图片本地化到媒体库，支持传统编辑器与古登堡，支持粘贴截图自动上传。
- * Version:           1.1.0
+ * Version:           1.0.0
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * Author:            老蒋和他的伙伴们
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LEIMGLOCAL_VERSION', '1.1.0' );
+define( 'LEIMGLOCAL_VERSION', '1.0.0' );
 define( 'LEIMGLOCAL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LEIMGLOCAL_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'LEIMGLOCAL_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
@@ -34,7 +34,6 @@ function leimglocal_is_enabled() {
 
 require_once LEIMGLOCAL_PLUGIN_DIR . 'includes/class-leimglocal-image-service.php';
 require_once LEIMGLOCAL_PLUGIN_DIR . 'includes/class-leimglocal-ajax.php';
-require_once LEIMGLOCAL_PLUGIN_DIR . 'includes/class-leimglocal-frontend.php';
 require_once LEIMGLOCAL_PLUGIN_DIR . 'admin/class-leimglocal-admin.php';
 require_once LEIMGLOCAL_PLUGIN_DIR . 'admin/class-leimglocal-classic-editor.php';
 require_once LEIMGLOCAL_PLUGIN_DIR . 'admin/class-leimglocal-gutenberg.php';
@@ -45,7 +44,6 @@ require_once LEIMGLOCAL_PLUGIN_DIR . 'admin/class-leimglocal-gutenberg.php';
 function leimglocal_init() {
 	load_plugin_textdomain( 'leimglocal', false, dirname( LEIMGLOCAL_PLUGIN_BASENAME ) . '/languages' );
 	LeimgLocal_Admin::get_instance();
-	LeimgLocal_Frontend::get_instance();
 	if ( leimglocal_is_enabled() ) {
 		LeimgLocal_Classic_Editor::get_instance();
 		LeimgLocal_Gutenberg::get_instance();
@@ -69,9 +67,5 @@ function leimglocal_activate() {
 	add_option( 'leimglocal_enabled', '1' );
 	add_option( 'leimglocal_auto_paste', '1' );
 	add_option( 'leimglocal_quality', 90 );
-	add_option( 'leimglocal_lightbox_enabled', '0' );
-	add_option( 'leimglocal_lightbox_min_size', 800 );
-	add_option( 'leimglocal_lightbox_post_content_only', '1' );
-	add_option( 'leimglocal_lightbox_show_icon', '0' );
 }
 register_activation_hook( __FILE__, 'leimglocal_activate' );

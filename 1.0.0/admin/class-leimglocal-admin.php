@@ -90,47 +90,6 @@ class LeimgLocal_Admin {
 				},
 			)
 		);
-		register_setting(
-			'leimglocal_settings',
-			'leimglocal_lightbox_enabled',
-			array(
-				'type'              => 'string',
-				'sanitize_callback' => function ( $v ) {
-					return $v === '1' ? '1' : '0';
-				},
-			)
-		);
-		register_setting(
-			'leimglocal_settings',
-			'leimglocal_lightbox_min_size',
-			array(
-				'type'              => 'integer',
-				'sanitize_callback' => function ( $v ) {
-					$v = absint( $v );
-					return $v >= 100 ? $v : 800;
-				},
-			)
-		);
-		register_setting(
-			'leimglocal_settings',
-			'leimglocal_lightbox_post_content_only',
-			array(
-				'type'              => 'string',
-				'sanitize_callback' => function ( $v ) {
-					return $v === '1' ? '1' : '0';
-				},
-			)
-		);
-		register_setting(
-			'leimglocal_settings',
-			'leimglocal_lightbox_show_icon',
-			array(
-				'type'              => 'string',
-				'sanitize_callback' => function ( $v ) {
-					return $v === '1' ? '1' : '0';
-				},
-			)
-		);
 	}
 
 	/**
@@ -143,10 +102,6 @@ class LeimgLocal_Admin {
 		$enabled    = get_option( 'leimglocal_enabled', '1' );
 		$auto_paste = get_option( 'leimglocal_auto_paste', '1' );
 		$quality    = get_option( 'leimglocal_quality', 90 );
-		$lightbox_enabled  = get_option( 'leimglocal_lightbox_enabled', '0' );
-		$lightbox_min_size = (int) get_option( 'leimglocal_lightbox_min_size', 800 );
-		$lightbox_post_content_only = get_option( 'leimglocal_lightbox_post_content_only', '1' );
-		$lightbox_show_icon = get_option( 'leimglocal_lightbox_show_icon', '0' );
 		?>
 		<div class="wrap">
 			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
@@ -177,35 +132,6 @@ class LeimgLocal_Admin {
 						<td>
 							<input type="number" name="leimglocal_quality" value="<?php echo esc_attr( $quality ); ?>" min="1" max="100" />
 							<p class="description"><?php esc_html_e( '本地化时 JPEG 压缩质量 (1-100)，仅作预留，当前版本使用原图。', 'leimglocal' ); ?></p>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row"><?php esc_html_e( '开启图片灯箱效果', 'leimglocal' ); ?></th>
-						<td>
-							<label>
-								<input type="checkbox" name="leimglocal_lightbox_enabled" value="1" <?php checked( $lightbox_enabled, '1' ); ?> />
-								<?php esc_html_e( '开启后，前台点击符合条件的图片可放大预览（Lightbox）', 'leimglocal' ); ?>
-							</label>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row"><?php esc_html_e( '灯箱最小尺寸（像素）', 'leimglocal' ); ?></th>
-						<td>
-							<input type="number" name="leimglocal_lightbox_min_size" value="<?php echo esc_attr( $lightbox_min_size ); ?>" min="100" step="10" />
-							<p class="description"><?php esc_html_e( '当图片原始宽度或高度大于等于该值时，才允许点击进入灯箱。建议 800。', 'leimglocal' ); ?></p>
-							<label style="display:block;margin-top:8px;">
-								<input type="checkbox" name="leimglocal_lightbox_show_icon" value="1" <?php checked( $lightbox_show_icon, '1' ); ?> />
-								<?php esc_html_e( '开启后，在可点击放大的图片右上角显示放大镜图标；小于最小尺寸的图片不显示。', 'leimglocal' ); ?>
-							</label>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row"><?php esc_html_e( '只对文章内容生效', 'leimglocal' ); ?></th>
-						<td>
-							<label>
-								<input type="checkbox" name="leimglocal_lightbox_post_content_only" value="1" <?php checked( $lightbox_post_content_only, '1' ); ?> />
-								<?php esc_html_e( '开启后，仅文章正文区域（如 entry-content）中的图片支持灯箱效果', 'leimglocal' ); ?>
-							</label>
 						</td>
 					</tr>
 				</table>

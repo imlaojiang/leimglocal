@@ -12,7 +12,3 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 delete_option( 'leimglocal_enabled' );
 delete_option( 'leimglocal_auto_paste' );
 delete_option( 'leimglocal_quality' );
-delete_option( 'leimglocal_lightbox_enabled' );
-delete_option( 'leimglocal_lightbox_min_size' );
-delete_option( 'leimglocal_lightbox_post_content_only' );
-delete_option( 'leimglocal_lightbox_show_icon' );
